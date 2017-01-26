@@ -9,28 +9,6 @@ import random
 import renumber
 
 
-test_file_names = [
-    'prodeng11.jpg',
-    'prodeng11.png',
-    'prodeng27.jpg',
-    'prodeng32.jpg',
-    'prodeng32.png',
-    'prodeng33.png',
-    'prodeng47.png',
-    'prodeng55.jpg',
-    'prodeng55.png',
-    'prodeng56.jpg',
-    'prodeng68.jpg',
-    'prodeng72.png',
-    'prodeng94.png',
-    'weta17.jpg',
-    'weta22.jpg',
-    'weta37.jpg',
-    'weta55.jpg',
-    'weta96.jpg'
-]
-
-
 def create_test_files(file_names, root_dir):
     if not os.path.exists(root_dir):
             os.makedirs(root_dir)
@@ -95,6 +73,7 @@ class TestRenumber(unittest.TestCase):
 
         self.root_dir = tempfile.mkdtemp()
         self.dst_dir = tempfile.mkdtemp()
+
         create_test_files(self.test_file_names, self.root_dir)
 
     def tearDown(self):
