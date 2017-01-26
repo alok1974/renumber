@@ -26,11 +26,10 @@ src_dir = 'path to source directory'
 dst_dir = 'path to destination directory'
 
 in_place = False  # If True the files will be renamed in place otherwise
-`dst_dir` will be used if given else a new directory called 'renumbered' will
-be created in the `src_dir`
+# `dst_dir` will be used if given else a new directory called 'renumbered' will
+# be created in the `src_dir`
 
-start_at = 37  # Number to start sequencing from, if not given lowest file
-number will be used
+start_at = 37  # Number to start sequencing from, if not given lowest file number will be used
 
 padding = 4  # Padding (leading zeroes) for file numbers, defaults to 2
 renumber.renumber(
