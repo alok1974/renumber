@@ -19,6 +19,7 @@ docstring for more.
 """
 import os
 import shutil
+import uuid
 
 
 def _split_name_number(name):
@@ -49,8 +50,8 @@ def renumber(src_dir, dst_dir=None, in_place=False, start_at=None, padding=2):
 
         dst_dir (str, optional): Path to destination directory where the
             renamed files should be created. If not specified or None, a
-            directory named 'renumbered' is created in the `src_dir`. Defaults
-            to None
+            directory named 'renumbered_XXXXXXXX' (where XXXXXXXX is a random
+            number) is created in the `src_dir`. Defaults to None
 
         in_place (bool, optional): If true, the files are named in place and
             `dst_dir` is ignored. Defaults to False
@@ -69,7 +70,9 @@ def renumber(src_dir, dst_dir=None, in_place=False, start_at=None, padding=2):
 
     # Create destination directory as required
     if dst_dir is None:
-        dst_dir = os.path.join(src_dir, 'renumbered')
+        renumbered_dir_name = '{0}_{1}'.format(
+            'renumbered', uuid.uuid4().hex[:8])
+        dst_dir = os.path.join(src_dir, renumbered_dir_name)
         if not os.path.exists(dst_dir):
             os.makedirs(dst_dir)
 

@@ -85,8 +85,15 @@ class TestRenumber(unittest.TestCase):
 
     def test_renumber_defaults(self):
         renumber.renumber(self.root_dir)
+
+        renumbered_dir_name = [
+            n for n in os.listdir(self.root_dir)
+            if os.path.isdir(os.path.join(self.root_dir, n))
+            and n.startswith('renumbered')
+        ][0]
+
         renumbered_file_names = os.listdir(
-            os.path.join(self.root_dir, 'renumbered')
+            os.path.join(self.root_dir, renumbered_dir_name)
         )
 
         self.assertEqual(
