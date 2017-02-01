@@ -10,11 +10,10 @@ import renumber
 
 
 def create_test_files(file_names, root_dir):
-    if not os.path.exists(root_dir):
-            os.makedirs(root_dir)
-    for file_ in os.listdir(root_dir):
-        os.unlink(os.path.join(root_dir, file_))
+    if os.path.exists(root_dir):
+        shutil.rmtree(root_dir)
 
+    os.makedirs(root_dir)
     for file_name in file_names:
         file_path = os.path.join(root_dir, file_name)
         with open(file_path, 'w') as fp:
