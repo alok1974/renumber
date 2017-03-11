@@ -36,11 +36,11 @@ class TestRenumber(unittest.TestCase):
             'prodeng68.jpg',
             'prodeng72.png',
             'prodeng94.png',
-            'weta17.jpg',
-            'weta22.jpg',
-            'weta37.jpg',
-            'weta55.jpg',
-            'weta96.jpg'
+            'render17.jpg',
+            'render22.jpg',
+            'render37.jpg',
+            'render55.jpg',
+            'render96.jpg'
         ]
 
         self.expected_file_names = [
@@ -61,12 +61,12 @@ class TestRenumber(unittest.TestCase):
             'prodeng16.png',
             'prodeng17.png',
 
-            # weta seq
-            'weta17.jpg',
-            'weta18.jpg',
-            'weta19.jpg',
-            'weta20.jpg',
-            'weta21.jpg',
+            # render seq
+            'render17.jpg',
+            'render18.jpg',
+            'render19.jpg',
+            'render20.jpg',
+            'render21.jpg',
 
         ]
 
@@ -116,7 +116,7 @@ class TestRenumber(unittest.TestCase):
         expected_file_names = (
             ['prodeng{0}.jpg'.format(random_start_at + i) for i in range(6)]
             + ['prodeng{0}.png'.format(random_start_at + i) for i in range(7)]
-            + ['weta{0}.jpg'.format(random_start_at + i) for i in range(5)]
+            + ['render{0}.jpg'.format(random_start_at + i) for i in range(5)]
         )
 
         renumber.renumber(
@@ -131,7 +131,7 @@ class TestRenumber(unittest.TestCase):
     def test_renumber_padding(self):
         renumber.renumber(self.root_dir, in_place=True, padding=5)
         last_file = sorted(os.listdir(self.root_dir))[-1]
-        self.assertEqual(last_file, 'weta00021.jpg')
+        self.assertEqual(last_file, 'render00021.jpg')
 
 
 if __name__ == '__main__':
