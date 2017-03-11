@@ -65,8 +65,8 @@ def renumber(src_dir, dst_dir=None, in_place=False, start_at=None, padding=2):
         padding (int, optional): Specifies the number of leading zeroes in the
             number part of the image file name. Defaults to 2.
 
-    Returns:
-        Path(str) to the directory where renumbered files are created
+    Returns(str):
+        Path to the directory where renumbered files are created
 
 
     """
