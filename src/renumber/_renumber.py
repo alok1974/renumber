@@ -125,5 +125,5 @@ def renumber(src_dir, dst_dir=None, in_place=False, start_at=None, padding=2):
     if in_place:
         shutil.rmtree(dst_dir)
         return src_dir
-    else:
-        return dst_dir
+
+    return dst_dir
