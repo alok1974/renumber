@@ -21,17 +21,30 @@ docstring for more.
 ```python
 import renumber
 
+# Path to source directory where the files to renumber reside
 src_dir = 'path to source directory'
 
+# Path to destination directory where the new renumbered files should be created.
+# This is optional parameter if not given, a new directory called
+# 'renumbered_<random_number>' will be created in the `src_dir`.
+# Also if `in_place=True` is specified then this parameter is ignored
+# and files in src_dir will be replaced by the new renumbered files.
 dst_dir = 'path to destination directory'
 
-in_place = False  # If True the files will be renamed in place otherwise
-# `dst_dir` will be used if given else a new directory called 'renumbered' will
-# be created in the `src_dir`
+# If True the files will be renamed in place otherwise
+# `dst_dir` will be used if given else a new directory called 
+# 'renumbered_<random_number>' will be created in the `src_dir`
+in_place = False
 
-start_at = 37  # Number to start sequencing from, if not given lowest file number will be used
 
-padding = 4  # Padding (leading zeroes) for file numbers, defaults to 2
+# Number to start sequencing from, if not given lowest file number will be used
+start_at = 37
+
+
+# Padding (leading zeroes) for file numbers, defaults to 2
+padding = 4
+
+
 renumber.renumber(
     src_dr=src_dir,
     dst_dir=dst_dir,
